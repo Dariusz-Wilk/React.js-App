@@ -12,8 +12,12 @@ const List = () => {
 	]);
 
 	const addColumn = newColumn => {
-		setColumns([...columns, { id: shortid(), title: newColumn.title }]);
+		setColumns([
+			...columns,
+			{ id: shortid(), title: newColumn.title, icon: newColumn.icon },
+		]);
 	};
+	console.log(columns);
 
 	return (
 		<div className={styles.list}>
