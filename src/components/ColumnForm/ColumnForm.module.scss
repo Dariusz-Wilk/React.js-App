@@ -1,0 +1,22 @@
+.columnForm {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	margin: 10px 0;
+
+	label {
+		font-size: 18px;
+		margin: 0 4px;
+	}
+
+	.input {
+		margin: 0 6px 10px 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.columnForm {
+		flex-direction: column;
+		align-items: center;
+	}
+}

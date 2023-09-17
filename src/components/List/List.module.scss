@@ -38,3 +38,9 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
+
+@media (max-width: 767px) {
+	.columns {
+		justify-content: center;
+	}
+}
