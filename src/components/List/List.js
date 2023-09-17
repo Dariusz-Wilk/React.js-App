@@ -48,6 +48,18 @@ const List = () => {
 	};
 	console.log(columns);
 
+	const addCard = (newCard, columnId) => {
+		const columnsUpdated = columns.map(column => {
+			if (column.id === columnId) {
+				return {
+					...column,
+					cards: [...column.cards, { id: shortid(), title: newCard.title }],
+				};
+			} else return column;
+		});
+		setColumns(columnsUpdated);
+	};
+
 	return (
 		<div className={styles.list}>
 			<header className={styles.header}>
@@ -66,6 +78,7 @@ const List = () => {
 						title={column.title}
 						icon={column.icon}
 						cards={column.cards}
+						addCard={addCard}
 					/>
 				))}
 			</section>
