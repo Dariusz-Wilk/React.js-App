@@ -2,7 +2,7 @@ import styles from './List.module.scss';
 import Column from '../Column/Column';
 import ColumnForm from '../ColumnForm/ColumnForm';
 import shortid from 'shortid';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const List = () => {
 	const [columns, setColumns] = useState([
@@ -35,30 +35,35 @@ const List = () => {
 		},
 	]);
 
-	const addColumn = newColumn => {
-		setColumns([
-			...columns,
-			{
-				id: shortid(),
-				title: newColumn.title,
-				icon: newColumn.icon,
-				cards: [],
-			},
-		]);
-	};
-	console.log(columns);
+	const addColumn = useCallback(
+		newColumn => {
+			setColumns([
+				...columns,
+				{
+					id: shortid(),
+					title: newColumn.title,
+					icon: newColumn.icon,
+					cards: [],
+				},
+			]);
+		},
+		[columns]
+	);
 
-	const addCard = (newCard, columnId) => {
-		const columnsUpdated = columns.map(column => {
-			if (column.id === columnId) {
-				return {
-					...column,
-					cards: [...column.cards, { id: shortid(), title: newCard.title }],
-				};
-			} else return column;
-		});
-		setColumns(columnsUpdated);
-	};
+	const addCard = useCallback(
+		(newCard, columnId) => {
+			const columnsUpdated = columns.map(column => {
+				if (column.id === columnId) {
+					return {
+						...column,
+						cards: [...column.cards, { id: shortid(), title: newCard.title }],
+					};
+				} else return column;
+			});
+			setColumns(columnsUpdated);
+		},
+		[columns]
+	);
 
 	return (
 		<div className={styles.list}>
