@@ -1,15 +1,24 @@
 import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 
-const ColumnForm = props => {
+const ColumnForm = () => {
+	const dispatch = useDispatch();
+	let columnsLength = useSelector(state => state.columns.length);
 	const [title, setTitle] = useState('');
 	const [icon, setIcon] = useState('');
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		props.action({ title: title, icon: icon });
+		const columnId = columnsLength + 1;
+		console.log(columnId);
+		dispatch({
+			type: 'ADD_COLUMN',
+			newColumn: { id: columnId, title, icon },
+		});
+
 		setTitle('');
 		setIcon('');
 	};
