@@ -13,7 +13,6 @@ const CardForm = ({ columnId }) => {
 		e.preventDefault();
 
 		let cardId = cardsArrLength + 1;
-		// const columnId = props.columnId;
 
 		dispatch({
 			type: 'ADD_CARD',
