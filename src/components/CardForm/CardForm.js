@@ -4,20 +4,20 @@ import TextInput from '../TextInput/TextInput';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const CardForm = props => {
-	let cardsArrLength = useSelector(state => state.cards.length);
+const CardForm = ({ columnId }) => {
+	const cardsArrLength = useSelector(state => state.cards.length);
 	const dispatch = useDispatch();
 	const [title, setTitle] = useState('');
 
 	const handleSubmit = e => {
 		e.preventDefault();
 
-		cardsArrLength += 1;
-		const columnId = props.columnId;
+		let cardId = cardsArrLength + 1;
+		// const columnId = props.columnId;
 
 		dispatch({
 			type: 'ADD_CARD',
-			payload: { id: cardsArrLength, columnId, title },
+			payload: { id: cardId, columnId, title },
 		});
 		setTitle('');
 	};

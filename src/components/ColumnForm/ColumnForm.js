@@ -13,7 +13,6 @@ const ColumnForm = () => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const columnId = columnsLength + 1;
-		console.log(columnId);
 		dispatch({
 			type: 'ADD_COLUMN',
 			payload: { id: columnId, title, icon },
