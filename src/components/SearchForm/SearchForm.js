@@ -3,6 +3,7 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { searchCards } from '../../redux/store';
 
 const SearchForm = () => {
 	const [phrase, setPhrase] = useState('');
@@ -10,10 +11,7 @@ const SearchForm = () => {
 
 	const clickHandler = e => {
 		e.preventDefault();
-		dispatch({
-			type: 'SET_PHRASE',
-			payload: phrase.toLocaleLowerCase(),
-		});
+		dispatch(searchCards(phrase));
 	};
 
 	return (

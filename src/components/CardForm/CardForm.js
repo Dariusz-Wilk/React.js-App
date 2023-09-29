@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addCart } from '../../redux/store';
 
 const CardForm = ({ columnId }) => {
 	const cardsArrLength = useSelector(state => state.cards.length);
@@ -12,12 +13,11 @@ const CardForm = ({ columnId }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
 
+		if (!title) return;
+
 		let cardId = cardsArrLength + 1;
 
-		dispatch({
-			type: 'ADD_CARD',
-			payload: { id: cardId, columnId, title },
-		});
+		dispatch(addCart({ id: cardId, columnId, title }));
 		setTitle('');
 	};
 

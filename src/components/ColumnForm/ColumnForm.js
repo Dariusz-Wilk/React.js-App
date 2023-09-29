@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
+import { addColumn } from '../../redux/store';
 
 const ColumnForm = () => {
 	const dispatch = useDispatch();
@@ -12,11 +13,10 @@ const ColumnForm = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
+
+		if (!title) return;
 		const columnId = columnsLength + 1;
-		dispatch({
-			type: 'ADD_COLUMN',
-			payload: { id: columnId, title, icon },
-		});
+		dispatch(addColumn({ id: columnId, title, icon }));
 
 		setTitle('');
 		setIcon('');
