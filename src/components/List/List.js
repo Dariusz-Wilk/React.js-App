@@ -3,9 +3,14 @@ import Column from '../Column/Column';
 import ColumnForm from '../ColumnForm/ColumnForm';
 import { useSelector } from 'react-redux';
 import { getAllColumns } from '../../redux/store';
+import { createSelector } from 'reselect';
+
+const selectColumns = createSelector(getAllColumns, cols => {
+	return cols;
+});
 
 const List = () => {
-	const columns = useSelector(getAllColumns);
+	const columns = useSelector(selectColumns);
 
 	return (
 		<div className={styles.list}>

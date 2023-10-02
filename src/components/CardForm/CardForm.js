@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCart } from '../../redux/store';
 
-const CardForm = ({ columnId }) => {
+const CardForm = ({ columnId, columnTitle }) => {
 	const cardsArrLength = useSelector(state => state.cards.length);
 	const dispatch = useDispatch();
 	const [title, setTitle] = useState('');
@@ -18,12 +18,21 @@ const CardForm = ({ columnId }) => {
 		let cardId = cardsArrLength + 1;
 
 		dispatch(addCart({ id: cardId, columnId, title }));
+		// dispatch({ type: 'ADD_CARD', payload: { id: cardId, columnId, title } });
 		setTitle('');
+	};
+
+	const setCartTitle = e => {
+		setTitle(e.target.value);
 	};
 
 	return (
 		<form className={styles.cardForm} onSubmit={handleSubmit}>
-			<TextInput value={title} onChange={e => setTitle(e.target.value)} />
+			<TextInput
+				value={title}
+				onChange={setCartTitle}
+				placeholder={`Add new ` + columnTitle}
+			/>
 			<Button>Add cart</Button>
 		</form>
 	);
