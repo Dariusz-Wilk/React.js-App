@@ -31,7 +31,7 @@ const CardForm = ({ columnId, columnTitle }) => {
 			<TextInput
 				value={title}
 				onChange={setCartTitle}
-				placeholder={`Add new ` + columnTitle}
+				placeholder={`Add new ` + columnTitle.toLowerCase()}
 			/>
 			<Button>Add cart</Button>
 		</form>
