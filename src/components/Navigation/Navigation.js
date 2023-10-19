@@ -1,7 +1,7 @@
 import styles from './Navigation.module.scss';
 import Container from '../Container/Container';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
 	return (
@@ -13,13 +13,31 @@ const Navigation = () => {
 					</a>
 					<ul className={styles.linksBox}>
 						<li className={styles.navLink}>
-							<Link to="/">Home</Link>
+							<NavLink
+								to="/"
+								className={({ isActive }) =>
+									isActive ? styles.activeLink : undefined
+								}>
+								Home
+							</NavLink>
 						</li>
 						<li className={styles.navLink}>
-							<Link to="/favorite">Favorite</Link>
+							<NavLink
+								to="/favorite"
+								className={({ isActive }) =>
+									isActive ? styles.activeLink : undefined
+								}>
+								Favorite
+							</NavLink>
 						</li>
 						<li className={styles.navLink}>
-							<Link to="/about">About</Link>
+							<NavLink
+								to="/about"
+								className={({ isActive }) =>
+									isActive ? styles.activeLink : undefined
+								}>
+								About
+							</NavLink>
 						</li>
 					</ul>
 				</div>

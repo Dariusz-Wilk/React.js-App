@@ -1,6 +1,9 @@
+@import '../../styles/settings.scss';
+
 .nav {
-	background-color: #1717174d;
-	padding: 20px;
+	background-color: darken($color-dark, 3%);
+	// background-color: #1717174d;
+	padding: 2px 20px;
 }
 
 .navItems {
@@ -23,10 +26,13 @@
 		text-decoration: none;
 		color: aliceblue;
 	}
+	.activeLink {
+		color: $color-warning;
+	}
 }
 
 a .icon {
 	font-size: 20px;
-	color: aliceblue;
+	color: $color-light;
 	cursor: pointer;
 }
