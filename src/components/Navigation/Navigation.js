@@ -1,7 +1,9 @@
 import styles from './Navigation.module.scss';
 import Container from '../Container/Container';
 
-const Navigation = props => {
+import { Link } from 'react-router-dom';
+
+const Navigation = () => {
 	return (
 		<nav className={styles.nav}>
 			<Container>
@@ -9,17 +11,17 @@ const Navigation = props => {
 					<a href="/">
 						<span className={styles.icon + ' fa fa-tasks'}></span>
 					</a>
-					<div>
-						<a href="/" className={styles.navLink}>
-							Home
-						</a>
-						<a href="/favorite" className={styles.navLink}>
-							Favorite
-						</a>
-						<a href="/about" className={styles.navLink}>
-							About
-						</a>
-					</div>
+					<ul className={styles.linksBox}>
+						<li className={styles.navLink}>
+							<Link to="/">Home</Link>
+						</li>
+						<li className={styles.navLink}>
+							<Link to="/favorite">Favorite</Link>
+						</li>
+						<li className={styles.navLink}>
+							<Link to="/about">About</Link>
+						</li>
+					</ul>
 				</div>
 			</Container>
 		</nav>
