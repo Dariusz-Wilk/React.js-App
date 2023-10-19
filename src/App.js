@@ -3,15 +3,21 @@ import Navigation from './components/Navigation/Navigation';
 import Home from './components/Home/Home';
 import Favorite from './components/Favorite/Favorite';
 import About from './components/About/About';
+import PageNotFound from './components/PageNotFound/PageNotFound';
+
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
 	return (
 		<main>
 			<Navigation />
 			<Container>
-				<Home />
-				<Favorite />
-				<About />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/favorite" element={<Favorite />} />
+					<Route path="*" element={<PageNotFound />} />
+				</Routes>
 			</Container>
 		</main>
 	);
