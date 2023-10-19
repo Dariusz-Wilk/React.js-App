@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { createStore } from 'redux';
 import initialState from './initialState';
 import { strContains } from '../utils/strContains';
@@ -16,11 +17,11 @@ export const getAllLists = ({ lists }) => {
 };
 
 export const getListById = ({ lists }, listId) => {
-	return lists.find(list => list.id === listId);
+	return lists.find(list => list.id == listId);
 };
 
 export const getColumnsByList = ({ columns }, listId) => {
-	return columns.filter(column => column.listId === listId);
+	return columns.filter(column => column.listId == listId);
 };
 
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
