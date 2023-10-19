@@ -15,6 +15,10 @@ export const getListById = ({ lists }, listId) => {
 	return lists.find(list => list.id === listId);
 };
 
+export const getColumnsByList = ({ columns }, listId) => {
+	return columns.filter(column => column.listId === listId);
+};
+
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCart = payload => ({ type: 'ADD_CARD', payload });

@@ -26,7 +26,7 @@ const initialState = {
 			icon: 'film',
 		},
 		{
-			ListId: 1,
+			listId: 1,
 			id: 3,
 			title: 'Games',
 			icon: 'gamepad',
