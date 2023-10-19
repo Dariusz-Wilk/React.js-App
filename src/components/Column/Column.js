@@ -3,8 +3,6 @@ import Card from '../Card/Card';
 import CardForm from '../CardForm/CardForm';
 import { useSelector } from 'react-redux';
 import { getFilteredCards } from '../../redux/store';
-// import { createSelector } from 'reselect';
-// import React from 'react';
 
 const Column = props => {
 	// const phrase = useSelector(state => state.searchPhrase);

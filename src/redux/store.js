@@ -11,6 +11,10 @@ export const getAllColumns = ({ columns }) => {
 	return columns;
 };
 
+export const getListById = ({ lists }, listId) => {
+	return lists.find(list => list.id === listId);
+};
+
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCart = payload => ({ type: 'ADD_CARD', payload });
