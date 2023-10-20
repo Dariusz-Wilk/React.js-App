@@ -24,6 +24,8 @@ export const getColumnsByList = ({ columns }, listId) => {
 	return columns.filter(column => column.listId == listId);
 };
 
+export const addList = payload => ({ type: 'ADD_LIST', payload });
+
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCart = payload => ({ type: 'ADD_CARD', payload });
@@ -38,6 +40,8 @@ const reducer = (state, action) => {
 			return { ...state, cards: [...state.cards, action.payload] };
 		case 'SET_PHRASE':
 			return { ...state, searchPhrase: action.payload };
+		case 'ADD_LIST':
+			return { ...state, lists: [...state.lists, action.payload] };
 		default:
 			return state;
 	}
