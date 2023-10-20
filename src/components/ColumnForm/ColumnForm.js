@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 import { addColumn } from '../../redux/store';
 
-const ColumnForm = () => {
+const ColumnForm = ({ listId }) => {
 	const dispatch = useDispatch();
 	let columnsLength = useSelector(state => state.columns.length);
 	const [title, setTitle] = useState('');
@@ -16,7 +16,7 @@ const ColumnForm = () => {
 
 		if (!title) return;
 		const columnId = columnsLength + 1;
-		dispatch(addColumn({ id: columnId, title, icon }));
+		dispatch(addColumn({ id: columnId, title, icon, listId }));
 
 		setTitle('');
 		setIcon('');
