@@ -17,7 +17,7 @@ const CardForm = ({ columnId, columnTitle }) => {
 
 		let cardId = cardsArrLength + 1;
 
-		dispatch(addCart({ id: cardId, columnId, title }));
+		dispatch(addCart({ id: cardId, columnId, title, isFavorite: false }));
 		// dispatch({ type: 'ADD_CARD', payload: { id: cardId, columnId, title } });
 		setTitle('');
 	};
