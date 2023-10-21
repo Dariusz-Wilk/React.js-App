@@ -2,7 +2,7 @@ import styles from './Card.module.scss';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToFavorite } from '../../redux/cardsRedux';
+import { addToFavorite, removeCard } from '../../redux/cardsRedux';
 
 const Card = props => {
 	const dispatch = useDispatch();
@@ -13,12 +13,25 @@ const Card = props => {
 		dispatch(addToFavorite(props.id));
 	};
 
+	const deleteCard = () => {
+		dispatch(removeCard(props.id));
+	};
+
 	return (
 		<li className={styles.card} key={props.id}>
 			{props.title}
-			<span
-				className={clsx(styles.fav, 'fa fa-star-o', !favorite || styles.isFav)}
-				onClick={handleClick}></span>
+			<div className="iconBox">
+				<span
+					className={clsx(
+						styles.fav,
+						'fa fa-star-o',
+						!favorite || styles.isFav
+					)}
+					onClick={handleClick}></span>
+				<span
+					className={'fa fa-trash ' + styles.del}
+					onClick={deleteCard}></span>
+			</div>
 		</li>
 	);
 };

@@ -12,11 +12,17 @@
 	font-weight: bold;
 	align-items: center;
 
-	.fav {
+	.fav,
+	.del {
 		padding: 0 5px;
 		cursor: pointer;
 		font-weight: 900;
 		font-size: 16px;
+		transition: $transition-fast;
+
+		&:hover {
+			color: $color-warning;
+		}
 	}
 
 	.isFav {
