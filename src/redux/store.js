@@ -1,7 +1,11 @@
 /* eslint-disable eqeqeq */
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import initialState from './initialState';
 import { strContains } from '../utils/strContains';
+import listsReducer from './listsRedux';
+import columnsReducer from './columnsRedux';
+import cardsReducer from './cardsRedux';
+import searchPhraseReducer from './searchPhraseRedux';
 
 export const getFilteredCards = ({ cards, searchPhrase }, columnId) =>
 	cards.filter(
@@ -43,58 +47,14 @@ export const addToFavorite = payload => ({
 
 // ======= SUBREDUCERS ===============
 
-const listsReducer = (statePart = [], action) => {
-	switch (action.type) {
-		case 'ADD_LIST':
-			return [...statePart, { ...action.payload }];
-		default:
-			return statePart;
-	}
+const subreducers = {
+	lists: listsReducer,
+	columns: columnsReducer,
+	cards: cardsReducer,
+	searchPhrase: searchPhraseReducer,
 };
 
-const columnsReducer = (statePart = [], action) => {
-	switch (action.type) {
-		case 'ADD_COLUMN':
-			return [...statePart, { ...action.payload }];
-		default:
-			return statePart;
-	}
-};
-
-const cardsReducer = (statePart = [], action) => {
-	switch (action.type) {
-		case 'ADD_CARD':
-			return [...statePart, { ...action.payload }];
-		case 'TOGGLE_CARD_FAVORITE':
-			return statePart.map(card =>
-				card.id === action.payload
-					? { ...card, isFavorite: !card.isFavorite }
-					: card
-			);
-		default:
-			return statePart;
-	}
-};
-
-const searchStringReducer = (statePart = '', action) => {
-	switch (action.type) {
-		case 'SET_PHRASE':
-			return action.payload;
-		default:
-			return statePart;
-	}
-};
-
-const reducer = (state, action) => {
-	const newState = {
-		lists: listsReducer(state.lists, action),
-		columns: columnsReducer(state.columns, action),
-		cards: cardsReducer(state.cards, action),
-		searchPhrase: searchStringReducer(state.searchPhrase, action),
-	};
-
-	return newState;
-};
+const reducer = combineReducers(subreducers);
 
 const store = createStore(
 	reducer,
