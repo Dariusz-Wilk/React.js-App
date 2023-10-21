@@ -2,7 +2,7 @@ import styles from './Card.module.scss';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToFavorite } from '../../redux/store';
+import { addToFavorite } from '../../redux/cardsRedux';
 
 const Card = props => {
 	const dispatch = useDispatch();

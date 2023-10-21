@@ -32,19 +32,6 @@ export const getFavCards = ({ cards }) => {
 	return cards.filter(card => card.isFavorite === true);
 };
 
-export const addList = payload => ({ type: 'ADD_LIST', payload });
-
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
-
-export const addCart = payload => ({ type: 'ADD_CARD', payload });
-
-export const searchCards = payload => ({ type: 'SET_PHRASE', payload });
-
-export const addToFavorite = payload => ({
-	type: 'TOGGLE_CARD_FAVORITE',
-	payload,
-});
-
 // ======= SUBREDUCERS ===============
 
 const subreducers = {

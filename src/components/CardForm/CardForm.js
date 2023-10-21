@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCart } from '../../redux/store';
+import { addCart } from '../../redux/cardsRedux';
 
 const CardForm = ({ columnId, columnTitle }) => {
 	const cardsArrLength = useSelector(state => state.cards.length);
