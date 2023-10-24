@@ -7,7 +7,7 @@ import { addList } from '../../redux/listsRedux';
 
 const ListForm = () => {
 	const dispatch = useDispatch();
-	let listsLength = useSelector(state => state.lists.length);
+	const listsLength = useSelector(state => state.lists.length);
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
