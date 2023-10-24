@@ -21,6 +21,7 @@ const Column = props => {
 						title={card.title}
 						isFavorite={card.isFavorite}
 						id={card.id}
+						trash="fa fa-trash "
 					/>
 				))}
 			</ul>

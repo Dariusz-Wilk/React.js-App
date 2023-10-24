@@ -28,9 +28,8 @@ const Card = props => {
 						!favorite || styles.isFav
 					)}
 					onClick={handleClick}></span>
-				<span
-					className={'fa fa-trash ' + styles.del}
-					onClick={deleteCard}></span>
+
+				<span className={props.trash + styles.del} onClick={deleteCard}></span>
 			</div>
 		</li>
 	);
