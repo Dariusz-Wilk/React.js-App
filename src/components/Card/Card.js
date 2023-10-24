@@ -22,11 +22,7 @@ const Card = props => {
 			{props.title}
 			<div className="iconBox">
 				<span
-					className={clsx(
-						styles.fav,
-						'fa fa-star-o',
-						!favorite || styles.isFav
-					)}
+					className={clsx(styles.fav, 'fa fa-star-o', favorite && styles.isFav)}
 					onClick={handleClick}></span>
 
 				<span className={props.trash + styles.del} onClick={deleteCard}></span>
