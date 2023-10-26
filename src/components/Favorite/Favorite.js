@@ -27,16 +27,15 @@ const Favorite = () => {
 				</article>
 			</main>
 		);
-	} else {
-		return (
-			<main className={styles.main}>
-				<PageTitle>Favorite</PageTitle>
-				<p className={styles.text}>
-					Add at least one card to favorite section...
-				</p>
-			</main>
-		);
 	}
+	return (
+		<main className={styles.main}>
+			<PageTitle>Favorite</PageTitle>
+			<p className={styles.text}>
+				Add at least one card to favorite section...
+			</p>
+		</main>
+	);
 };
 
 export default Favorite;
